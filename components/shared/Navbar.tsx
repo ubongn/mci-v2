@@ -6,14 +6,17 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Image from "next/image";
+import { useState } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -77,7 +80,7 @@ const Navbar = () => {
 
           {/* Mobile Sheet Trigger */}
           <div className="md:hidden flex items-center">
-            <Sheet>
+            <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
@@ -113,24 +116,27 @@ const Navbar = () => {
                 </SheetHeader>
                 <div className="flex flex-col space-y-4 mt-8">
                   {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`text-center py-2 font-medium transition-colors ${
-                        pathname === link.href
-                          ? "text-black font-semibold"
-                          : "text-gray-600 hover:text-black"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
+                    <SheetClose asChild key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={`text-center py-2 font-medium transition-colors ${
+                          pathname === link.href
+                            ? "text-black font-semibold"
+                            : "text-gray-600 hover:text-black"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    </SheetClose>
                   ))}
                   <div className="pt-4 mt-4 border-t flex justify-center">
-                    <Link href="/join-us" className="w-full">
-                      <Button className="bg-black text-white hover:bg-gray-800 w-full">
-                        Join Us
-                      </Button>
-                    </Link>
+                    <SheetClose asChild>
+                      <Link href="/join-us" className="w-1/2">
+                        <Button className="bg-black text-white hover:bg-gray-800 w-full">
+                          Join Us
+                        </Button>
+                      </Link>
+                    </SheetClose>
                   </div>
                 </div>
               </SheetContent>

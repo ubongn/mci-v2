@@ -1,97 +1,80 @@
 // app/contact/page.tsx
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
-import Image from "next/image";
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ContactPage() {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Add your form submission logic here
+  // Ensure all dynamic data is consistent between server and client
+  const contactInfo = {
+    emails: ['info@mci.org', 'support@mci.org'],
+    phones: ['+234 123 456 7890', '+234 987 654 3210'],
+    address: ['123 Youth Development Avenue', 'Lagos, Nigeria'],
+    hours: ['Monday - Friday: 9am - 5pm', 'Saturday: 10am - 2pm']
   };
 
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[400px]">
-        <Image
-          src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-          alt="Contact us"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+    <main className="min-h-screen pt-24">
+      {/* Hero Section - Fixed with priority image and explicit dimensions */}
+      <section className="relative h-[300px]">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+            alt="Contact us"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+            quality={80}
+          />
+        </div>
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div className="text-center max-w-3xl px-4">
             <h1 className="text-4xl font-bold text-white mb-4">Contact Us</h1>
-            <p className="text-xl text-gray-200">Get in touch with our team</p>
+            <p className="text-xl text-gray-200">
+              Get in touch with our team
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Grid - Now with constrained height */}
+      {/* Contact Grid */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Contact Form - Takes only needed space */}
-            <div className="md:w-1/2">
-              <div className="bg-gray-50 p-8 rounded-lg shadow-sm h-full">
-                <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      type="text"
-                      id="name"
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      type="email"
-                      id="email"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input
-                      type="text"
-                      id="subject"
-                      placeholder="Subject"
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Your message"
-                      rows={5}
-                      required
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full md:w-auto px-8">
-                    Send Message
-                  </Button>
-                </form>
-              </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
+              <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
+              <form className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Your name</Label>
+                  <Input id="name" placeholder="Your name" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input type="email" id="email" placeholder="your@email.com" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input id="subject" placeholder="Subject" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">Your message</Label>
+                  <Textarea id="message" placeholder="Your message" rows={5} required />
+                </div>
+                <Button type="submit" className="w-full">
+                  Send Message
+                </Button>
+              </form>
             </div>
 
-            {/* Contact Info - Fixed width and natural height */}
-            <div className="md:w-1/2 flex flex-col">
-              <div className="bg-gray-50 p-8 rounded-lg shadow-sm flex-1">
+            {/* Contact Info - Using consistent data */}
+            <div className="space-y-12">
+              <div>
                 <h2 className="text-2xl font-bold mb-6">Our information</h2>
                 <div className="space-y-8">
                   <div className="flex items-start">
@@ -100,8 +83,9 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-lg mb-1">Email</h3>
-                      <p className="text-gray-600">info@mci.org</p>
-                      <p className="text-gray-600">support@mci.org</p>
+                      {contactInfo.emails.map((email, i) => (
+                        <p key={i} className="text-gray-600">{email}</p>
+                      ))}
                     </div>
                   </div>
 
@@ -111,8 +95,9 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-lg mb-1">Phone</h3>
-                      <p className="text-gray-600">+234 123 456 7890</p>
-                      <p className="text-gray-600">+234 987 654 3210</p>
+                      {contactInfo.phones.map((phone, i) => (
+                        <p key={i} className="text-gray-600">{phone}</p>
+                      ))}
                     </div>
                   </div>
 
@@ -122,11 +107,9 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-lg mb-1">Address</h3>
-                      <p className="text-gray-600">
-                        123 Youth Development Avenue
-                        <br />
-                        Lagos, Nigeria
-                      </p>
+                      {contactInfo.address.map((line, i) => (
+                        <p key={i} className="text-gray-600">{line}</p>
+                      ))}
                     </div>
                   </div>
 
@@ -135,29 +118,34 @@ export default function ContactPage() {
                       <Clock className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-lg mb-1">
-                        Working Hours
-                      </h3>
-                      <p className="text-gray-600">
-                        Monday - Friday: 9am - 5pm
-                      </p>
-                      <p className="text-gray-600">Saturday: 10am - 2pm</p>
+                      <h3 className="font-medium text-lg mb-1">Working Hours</h3>
+                      {contactInfo.hours.map((hour, i) => (
+                        <p key={i} className="text-gray-600">{hour}</p>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Map Embed - Fixed height below contact info */}
-              <div className="mt-8 aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.585444058144!2d3.379295415231921!3d6.453326595338764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1620000000000!5m2!1sen!2sng"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+              {/* Footer Info */}
+              <div className="flex items-center gap-4">
+                <div className="relative w-20 h-12">
+                  <Image
+                    src="/assets/icons/new.png"
+                    alt="MCI Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="flex gap-4">
+                    <span className="text-xs font-medium text-gray-500">EST. 2014</span>
+                    <span className="text-xs font-medium text-gray-500">CAC Reg. No. 67767</span>
+                  </div>
+                  <p className="text-sm text-gray-600 mt-1">
+                    MCI is a non-profit organization established in 2014 and is committed to the development of young people to help them realize their gifts and potentials EARLY.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
