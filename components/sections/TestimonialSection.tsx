@@ -53,7 +53,7 @@ export default function TestimonialSection() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 italic">"{testimonial.content}"</p>
+                <p className="text-gray-700 italic">&apos;{testimonial.content}&apos;</p>
               </CardContent>
             </Card>
           ))}

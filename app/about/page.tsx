@@ -44,7 +44,7 @@ export default function AboutPage() {
                 talents in young people through innovative programs and mentorship.
               </p>
               <p className="text-gray-600">
-                Since our establishment in 2014, we've impacted thousands of youths across 
+                Since our establishment in 2014, we&apos;ve impacted thousands of youths across 
                 Nigeria, helping them discover their purpose and develop essential skills 
                 for the future.
               </p>

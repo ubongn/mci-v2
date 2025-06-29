@@ -39,7 +39,7 @@ export default function JoinUsPage() {
           <div className="text-center max-w-3xl px-4">
             <h1 className="text-4xl font-bold text-white mb-4">Join Our Community</h1>
             <p className="text-xl text-gray-200">
-              Register to become part of MCI's growing network
+              Register to become part of MCI&apos;s growing network
             </p>
           </div>
         </div>
