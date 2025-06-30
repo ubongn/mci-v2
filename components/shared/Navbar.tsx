@@ -41,9 +41,7 @@ const Navbar = () => {
               />
             </Link>
             <div className="flex gap-4 mt-1 text-[10px]">
-              <span className=" font-medium text-gray-500">
-                EST. 2014
-              </span>
+              <span className=" font-medium text-gray-500">EST. 2014</span>
               <span className="font-medium text-gray-500">
                 CAC Reg. No. 67767
               </span>
@@ -96,6 +94,8 @@ const Navbar = () => {
                 className="bg-gray-50 text-gray-700 border-l w-[300px]"
               >
                 <SheetHeader>
+                  {/* Hidden title for accessibility */}
+                  <h2 className="sr-only">Navigation Menu</h2>
                   <div className="flex flex-col pt-4 items-center">
                     <Image
                       src="/assets/icons/new.png"
