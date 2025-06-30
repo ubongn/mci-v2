@@ -40,11 +40,11 @@ const Navbar = () => {
                 priority
               />
             </Link>
-            <div className="flex gap-4 mt-1">
-              <span className="text-xs font-medium text-gray-500">
+            <div className="flex gap-4 mt-1 text-[10px]">
+              <span className=" font-medium text-gray-500">
                 EST. 2014
               </span>
-              <span className="text-xs font-medium text-gray-500">
+              <span className="font-medium text-gray-500">
                 CAC Reg. No. 67767
               </span>
             </div>
@@ -104,7 +104,7 @@ const Navbar = () => {
                       height={80}
                       className="w-auto h-16 mb-2"
                     />
-                    <div className="flex gap-4 mt-1">
+                    <div className="flex text-xs gap-4 mt-1">
                       <span className="text-xs font-medium text-gray-500">
                         EST. 2014
                       </span>

@@ -2,15 +2,15 @@
 "use client";
 
 import HeroSection from "@/components/sections/HeroSection";
-import FeaturedSection from "@/components/sections/FeaturedSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
+import PillarsSection from "@/components/sections/PillarsSection";
 
 export default function Home() {
   return (
     <div>
       <HeroSection />
 
-      <FeaturedSection />
+      <PillarsSection />
       <TestimonialSection />
     </div>
   );
