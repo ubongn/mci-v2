@@ -128,7 +128,7 @@ export default function ContactPage() {
               </div>
 
               {/* Footer Info */}
-              <div className="flex items-center gap-4">
+              {/* <div className="flex items-center gap-4">
                 <div className="relative w-20 h-12">
                   <Image
                     src="/assets/icons/new.png"
@@ -146,7 +146,7 @@ export default function ContactPage() {
                     MCI is a non-profit organization established in 2014 and is committed to the development of young people to help them realize their gifts and potentials EARLY.
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
