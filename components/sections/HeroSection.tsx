@@ -32,13 +32,20 @@ const HeroSection = () => {
           className="w-full lg:w-1/2 order-2 lg:order-1"
           variants={fadeUpVariants}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-            Empowering the Next Generation
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+            Building and Rebuilding Lives
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-gray-700">
-            MCI is dedicated to nurturing talents and delivering impactful
-            solutions across communities.
+          <p className="mt-4 text-base text-gray-700">
+            MASTER’S CARE INTERNATIONAL (MCI), is a non-profit organization committed
+            to reaching out to especially young people; to let them know that they
+            can live meaningful, prosperous and successful lives.
           </p>
+          <p className="mt-2 text-base  text-gray-700">
+            MASTER’S CARE INTERNATIONAL (MCI), is a legally registered NGO (Non-Governmental
+            Organization) with the Corporate Affairs Commission (CAC) of Nigeria, with
+            Registration No: 67767, in 2014.
+          </p>
+
           <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link href="/about" className="w-full sm:w-auto">
               <Button className="w-full sm:w-auto" variant="default">
