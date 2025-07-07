@@ -37,8 +37,8 @@ export default function JoinUsPage() {
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div className="text-center max-w-3xl px-4">
-            <h1 className="text-4xl font-bold text-white mb-4">Join Our Community</h1>
-            <p className="text-xl text-gray-200">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Community</h1>
+            <p className="text-[14px] md:text-base text-gray-200">
               Register to become part of MCI&apos;s growing network
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function JoinUsPage() {
                 </div>
               </div>
 
-              <Button type="submit" className="w-full mt-8 py-6 text-lg">
+              <Button type="submit" className="w-full mt-8 text-[14px] md:text-base">
                 Register Now
               </Button>
             </form>

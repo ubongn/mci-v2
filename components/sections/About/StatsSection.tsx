@@ -46,10 +46,10 @@ const StatsSection = () => (
         <Badge variant="outline" className="mb-4 bg-primary text-white">
           Our Impact
         </Badge>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
           Transforming Lives Across Nigeria
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+        <p className="text-gray-600 max-w-2xl mx-auto text-[14px] md:text-base">
           Measurable results that showcase our commitment to youth empowerment.
         </p>
       </motion.div>
@@ -68,7 +68,7 @@ const StatsSection = () => (
               </CardHeader>
               <CardContent className="text-center px-6 pb-6 pt-0">
                 <p className="text-xl font-semibold text-gray-800">{stat.label}</p>
-                <p className="text-gray-600">{stat.desc}</p>
+                <p className="text-gray-600 text-[14px] md:text-base">{stat.desc}</p>
               </CardContent>
             </Card>
           </motion.div>

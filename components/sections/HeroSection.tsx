@@ -20,30 +20,26 @@ const fadeUpVariants = {
 const HeroSection = () => {
   return (
     <motion.section
-      className="pt-24 mt-4 pb-12 md:pt-32 md:pb-20 px-4 sm:px-6 lg:px-8"
+      className="pt-20 pb-10 sm:pt-24 mt-8 sm:pb-16 px-4 sm:px-6 lg:px-8"
       style={{ scrollMarginTop: "100px" }}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12">
         {/* Text Content */}
         <motion.div
           className="w-full lg:w-1/2 order-2 lg:order-1"
           variants={fadeUpVariants}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             Building and Rebuilding Lives
-          </h2>
-          <p className="mt-4 text-base text-gray-700">
-            MASTER’S CARE INTERNATIONAL (MCI), is a non-profit organization
-            committed to reaching out to especially young people; to let them
-            know that they can live meaningful, prosperous and successful lives.
+          </h1>
+          <p className="mt-4 text-[14px] md:text-base text-muted-foreground leading-relaxed">
+            Master’s Care International (MCI) is a non-profit organization committed to empowering young people to live meaningful, prosperous, and successful lives — no matter their background or circumstances.
           </p>
-          <p className="mt-2 text-base  text-gray-700">
-            MASTER’S CARE INTERNATIONAL (MCI), is a legally registered NGO
-            (Non-Governmental Organization) with the Corporate Affairs
-            Commission (CAC) of Nigeria, with Registration No: 67767, in 2014.
+          <p className="mt-3 text-[14px] md:text-base text-muted-foreground leading-relaxed">
+            Legally registered with the Corporate Affairs Commission (CAC) of Nigeria since 2014 (Registration No: 67767), MCI continues to make a lasting impact through education, empowerment, and care.
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -62,13 +58,13 @@ const HeroSection = () => {
 
         {/* Hero Image */}
         <motion.div
-          className="w-full lg:w-1/2 order-1 lg:order-2 mb-8 lg:mb-0"
+          className="w-full lg:w-1/2 order-1 lg:order-2"
           variants={fadeUpVariants}
         >
-          <div className="w-full aspect-video md:aspect-[16/10] relative rounded overflow-hidden shadow-lg">
+          <div className="w-full aspect-[4/3] sm:aspect-video md:aspect-[16/10] relative rounded-md overflow-hidden shadow-lg">
             <Image
               src="/assets/images/tailor/t7.jpg"
-              alt="MCI Hero"
+              alt="Master’s Care International"
               fill
               className="object-cover"
               priority

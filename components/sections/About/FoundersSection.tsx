@@ -35,10 +35,10 @@ const FoundersSection = () => (
         <Badge variant="outline" className="mb-4 text-white bg-primary">
           Our Leadership
         </Badge>
-        <h2 className="text-3xl font-bold mb-4 text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
           Meet The Visionaries
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl text-[14px] md:text-base mx-auto">
           The passionate leaders who brought MCI to life and continue to steer its mission forward.
         </p>
       </motion.div>
@@ -74,7 +74,7 @@ const FoundersSection = () => (
                   relative overflow-hidden mt-4
                   max-h-32 opacity-80
                   group-hover:max-h-[1000px] group-hover:opacity-100
-                  transition-all duration-500 ease-in-out
+                  transition-all duration-500 ease-in-out text-[14px] md:text-base
                 "
               >
                 <p className="text-gray-700">{f.bio}</p>

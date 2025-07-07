@@ -77,10 +77,10 @@ const GalleriesPage = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Our Galleries
             </h1>
-            <p className="text-xl text-gray-200">
+            <p className="text-[14px] md:text-base text-gray-200">
               Visual stories of impact and transformation
             </p>
           </motion.div>
@@ -142,14 +142,14 @@ const GalleriesPage = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className=" text-2xl md:text-3xl font-bold mb-6">
             Want to see more of our work?
           </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-600 mb-8 max-w-2xl text-[14px] md:text-base mx-auto">
             Follow us on social media for regular updates and behind-the-scenes
             content.
           </p>
-          <Button className="px-8 py-4 text-lg">Follow Our Journey</Button>
+          <Button className="px-8 py-4 text-[14px] md:text-base">Follow Our Journey</Button>
         </div>
       </motion.section>
     </main>

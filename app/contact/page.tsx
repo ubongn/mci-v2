@@ -1,20 +1,20 @@
 // app/contact/page.tsx
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import Image from "next/image";
 
 export default function ContactPage() {
   // Ensure all dynamic data is consistent between server and client
   const contactInfo = {
-    emails: ['info@mci.org', 'support@mci.org'],
-    phones: ['+234 123 456 7890', '+234 987 654 3210'],
-    address: ['123 Youth Development Avenue', 'Lagos, Nigeria'],
-    hours: ['Monday - Friday: 9am - 5pm', 'Saturday: 10am - 2pm']
+    emails: ["info@mci.org", "support@mci.org"],
+    phones: ["+234 123 456 7890", "+234 987 654 3210"],
+    address: ["123 Youth Development Avenue", "Lagos, Nigeria"],
+    hours: ["Monday - Friday: 9am - 5pm", "Saturday: 10am - 2pm"],
   };
 
   return (
@@ -34,8 +34,10 @@ export default function ContactPage() {
         </div>
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div className="text-center max-w-3xl px-4">
-            <h1 className="text-4xl font-bold text-white mb-4">Contact Us</h1>
-            <p className="text-xl text-gray-200">
+            <h1 className="text-2xl md:text-4xl font-bold text-white mb-4">
+              Contact Us
+            </h1>
+            <p className="text-[14px] md:text-base text-gray-200">
               Get in touch with our team
             </p>
           </div>
@@ -56,7 +58,12 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input type="email" id="email" placeholder="your@email.com" required />
+                  <Input
+                    type="email"
+                    id="email"
+                    placeholder="your@email.com"
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject</Label>
@@ -64,9 +71,14 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Your message</Label>
-                  <Textarea id="message" placeholder="Your message" rows={5} required />
+                  <Textarea
+                    id="message"
+                    placeholder="Your message"
+                    rows={5}
+                    required
+                  />
                 </div>
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full text-[14px] md:text-base">
                   Send Message
                 </Button>
               </form>
@@ -75,7 +87,7 @@ export default function ContactPage() {
             {/* Contact Info - Using consistent data */}
             <div className="space-y-12">
               <div>
-                <h2 className="text-2xl font-bold mb-6">Our information</h2>
+                <h2 className=" text-xl md:text-2xl font-bold mb-6">Our information</h2>
                 <div className="space-y-8">
                   <div className="flex items-start">
                     <div className="bg-primary/10 p-3 rounded-full mr-4">
@@ -84,7 +96,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-medium text-lg mb-1">Email</h3>
                       {contactInfo.emails.map((email, i) => (
-                        <p key={i} className="text-gray-600">{email}</p>
+                        <p key={i} className="text-gray-600 text-[14px] md:text-base">
+                          {email}
+                        </p>
                       ))}
                     </div>
                   </div>
@@ -96,7 +110,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-medium text-lg mb-1">Phone</h3>
                       {contactInfo.phones.map((phone, i) => (
-                        <p key={i} className="text-gray-600">{phone}</p>
+                        <p key={i} className="text-gray-600 text-[14px] md:text-base">
+                          {phone}
+                        </p>
                       ))}
                     </div>
                   </div>
@@ -108,7 +124,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-medium text-lg mb-1">Address</h3>
                       {contactInfo.address.map((line, i) => (
-                        <p key={i} className="text-gray-600">{line}</p>
+                        <p key={i} className="text-gray-600 text-[14px] md:text-base">
+                          {line}
+                        </p>
                       ))}
                     </div>
                   </div>
@@ -118,35 +136,18 @@ export default function ContactPage() {
                       <Clock className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-lg mb-1">Working Hours</h3>
+                      <h3 className="font-medium text-lg mb-1">
+                        Working Hours
+                      </h3>
                       {contactInfo.hours.map((hour, i) => (
-                        <p key={i} className="text-gray-600">{hour}</p>
+                        <p key={i} className="text-gray-600 text-[14px] md:text-base">
+                          {hour}
+                        </p>
                       ))}
                     </div>
                   </div>
                 </div>
               </div>
-
-              {/* Footer Info */}
-              {/* <div className="flex items-center gap-4">
-                <div className="relative w-20 h-12">
-                  <Image
-                    src="/assets/icons/new.png"
-                    alt="MCI Logo"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <div>
-                  <div className="flex gap-4">
-                    <span className="text-xs font-medium text-gray-500">EST. 2014</span>
-                    <span className="text-xs font-medium text-gray-500">CAC Reg. No. 67767</span>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-1">
-                    MCI is a non-profit organization established in 2014 and is committed to the development of young people to help them realize their gifts and potentials EARLY.
-                  </p>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

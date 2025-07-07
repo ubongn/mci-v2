@@ -23,10 +23,10 @@ const HeroSection = () => (
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
       >
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
           Discover Our Journey
         </h1>
-        <p className="text-lg sm:text-xl text-gray-200">
+        <p className="text-[14px] md:text-base text-gray-200">
           Empowering young people to realize their gifts and potentials since 2014.
         </p>
       </motion.div>

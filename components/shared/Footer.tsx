@@ -36,7 +36,7 @@ const Footer = () => {
             {/* Column 1 */}
             <div>
               <h4 className="font-bold mb-4 text-gray-900">Company</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-[14px] md:text-base">
                 <li>
                   <Link
                     href="/about"
@@ -67,7 +67,7 @@ const Footer = () => {
             {/* Column 2 */}
             <div>
               <h4 className="font-bold mb-4 text-gray-900">Resources</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-[14px] md:text-base">
                 <li>
                   <Link
                     href="/blog"
@@ -98,7 +98,7 @@ const Footer = () => {
             {/* Column 3 - Connect with Brand-Colored Icons */}
             <div>
               <h4 className="font-bold mb-4 text-gray-900">Connect</h4>
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4 text-[14px] md:text-base">
                 <a
                   href="https://x.com"
                   target="_blank"
