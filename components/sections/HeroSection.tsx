@@ -20,7 +20,7 @@ const fadeUpVariants = {
 const HeroSection = () => {
   return (
     <motion.section
-      className="pt-24 pb-12 md:pt-32 md:pb-20 px-4 sm:px-6 lg:px-8"
+      className="pt-24 mt-4 pb-12 md:pt-32 md:pb-20 px-4 sm:px-6 lg:px-8"
       style={{ scrollMarginTop: "100px" }}
       initial="hidden"
       whileInView="visible"
@@ -36,14 +36,14 @@ const HeroSection = () => {
             Building and Rebuilding Lives
           </h2>
           <p className="mt-4 text-base text-gray-700">
-            MASTER’S CARE INTERNATIONAL (MCI), is a non-profit organization committed
-            to reaching out to especially young people; to let them know that they
-            can live meaningful, prosperous and successful lives.
+            MASTER’S CARE INTERNATIONAL (MCI), is a non-profit organization
+            committed to reaching out to especially young people; to let them
+            know that they can live meaningful, prosperous and successful lives.
           </p>
           <p className="mt-2 text-base  text-gray-700">
-            MASTER’S CARE INTERNATIONAL (MCI), is a legally registered NGO (Non-Governmental
-            Organization) with the Corporate Affairs Commission (CAC) of Nigeria, with
-            Registration No: 67767, in 2014.
+            MASTER’S CARE INTERNATIONAL (MCI), is a legally registered NGO
+            (Non-Governmental Organization) with the Corporate Affairs
+            Commission (CAC) of Nigeria, with Registration No: 67767, in 2014.
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -65,9 +65,9 @@ const HeroSection = () => {
           className="w-full lg:w-1/2 order-1 lg:order-2 mb-8 lg:mb-0"
           variants={fadeUpVariants}
         >
-          <div className="w-full aspect-video md:aspect-[16/10] relative rounded-xl overflow-hidden shadow-lg">
+          <div className="w-full aspect-video md:aspect-[16/10] relative rounded overflow-hidden shadow-lg">
             <Image
-              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+              src="/assets/images/tailor/t7.jpg"
               alt="MCI Hero"
               fill
               className="object-cover"
