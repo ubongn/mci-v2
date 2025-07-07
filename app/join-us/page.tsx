@@ -1,5 +1,5 @@
-// app/join-us/page.tsx
 'use client';
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,6 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { CalendarIcon } from 'lucide-react';
 import { format } from 'date-fns';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function JoinUsPage() {
   const occupations = [
@@ -26,7 +27,13 @@ export default function JoinUsPage() {
   return (
     <main className="min-h-screen pt-24">
       {/* Hero Section */}
-      <section className="relative h-[300px]">
+      <motion.section
+        className="relative h-[300px]"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <Image
           src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
           alt="Join our community"
@@ -36,59 +43,73 @@ export default function JoinUsPage() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <div className="text-center max-w-3xl px-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Community</h1>
+          <motion.div
+            className="text-center max-w-3xl px-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Join Our Community
+            </h1>
             <p className="text-[14px] md:text-base text-gray-200">
               Register to become part of MCI&apos;s growing network
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Registration Form */}
-      <section className="py-16 bg-white">
+      <motion.section
+        className="py-16 bg-white"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
-            <h2 className="text-2xl font-bold mb-6 text-center">Registration Form</h2>
-            
+          <motion.div
+            className="bg-gray-50 p-8 rounded-lg shadow-sm"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <h2 className="text-2xl font-bold mb-6 text-center">
+              Registration Form
+            </h2>
+
             <form className="space-y-6">
               {/* Personal Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name *</Label>
-                  <Input 
-                    id="firstName" 
-                    placeholder="Your first name" 
-                    required 
-                  />
+                  <Input id="firstName" placeholder="Your first name" required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="surname">Surname *</Label>
-                  <Input 
-                    id="surname" 
-                    placeholder="Your surname" 
-                    required 
-                  />
+                  <Input id="surname" placeholder="Your surname" required />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="email">Email *</Label>
-                <Input 
-                  type="email" 
-                  id="email" 
-                  placeholder="your@email.com" 
-                  required 
+                <Input
+                  type="email"
+                  id="email"
+                  placeholder="your@email.com"
+                  required
                 />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone Number *</Label>
-                <Input 
-                  type="tel" 
-                  id="phone" 
-                  placeholder="+234 123 456 7890" 
-                  required 
+                <Input
+                  type="tel"
+                  id="phone"
+                  placeholder="+234 123 456 7890"
+                  required
                 />
               </div>
 
@@ -110,10 +131,10 @@ export default function JoinUsPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="department">Department *</Label>
-                  <Input 
-                    id="department" 
-                    placeholder="Enter your department" 
-                    required 
+                  <Input
+                    id="department"
+                    placeholder="Enter your department"
+                    required
                   />
                 </div>
               </div>
@@ -145,10 +166,10 @@ export default function JoinUsPage() {
               {/* Talent/Skill */}
               <div className="space-y-2">
                 <Label htmlFor="talent">Talent/Skill *</Label>
-                <Input 
-                  id="talent" 
-                  placeholder="Your special talent or skill" 
-                  required 
+                <Input
+                  id="talent"
+                  placeholder="Your special talent or skill"
+                  required
                 />
               </div>
 
@@ -156,28 +177,31 @@ export default function JoinUsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="referralName">Referral Name</Label>
-                  <Input 
-                    id="referralName" 
-                    placeholder="Name of person who referred you" 
+                  <Input
+                    id="referralName"
+                    placeholder="Name of person who referred you"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="referralPhone">Referral Phone Number</Label>
-                  <Input 
-                    type="tel" 
-                    id="referralPhone" 
-                    placeholder="Referral's phone number" 
+                  <Input
+                    type="tel"
+                    id="referralPhone"
+                    placeholder="Referral's phone number"
                   />
                 </div>
               </div>
 
-              <Button type="submit" className="w-full mt-8 text-[14px] md:text-base">
+              <Button
+                type="submit"
+                className="w-full mt-8 text-[14px] md:text-base bg-[#0a63ad] hover:bg-[#094f8c] focus-visible:ring-[#0a63ad]"
+              >
                 Register Now
               </Button>
             </form>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </main>
-  )
+  );
 }

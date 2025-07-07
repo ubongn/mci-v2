@@ -14,9 +14,10 @@ type SubItem = {
 
 type PillarItem = {
   title: string;
-  image: string; // can be empty string
+  image: string;
   subs: SubItem[];
 };
+
 const items: PillarItem[] = [
   {
     title: "Education & Tech",
@@ -62,7 +63,7 @@ their own businesses. Our goal is to empower individuals to become self-reliant 
   },
   {
     title: "UN SDGs Alignment",
-    image: "/assets/images/un.jpeg",
+    image: "/assets/images/un1.png",
     subs: [
       {
         subtitle: "No Poverty (SDG 1)",
@@ -88,18 +89,25 @@ Our programs foster economic growth by equipping participants with market-releva
   },
 ];
 
-
 const PillarsSection = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
     <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
+        {/* Animated Heading */}
         <div className="text-center mb-12">
-          <Badge variant="outline" className="mb-4 bg-primary text-white">
-            Our Initiatives
-          </Badge>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Badge variant="outline" className="mb-4 bg-[#0a63ad] text-white">
+              Our Initiatives
+            </Badge>
+          </motion.div>
+
           <h2 className="text-3xl font-bold mb-4 text-foreground">
             Explore our Pillars
           </h2>
@@ -120,7 +128,11 @@ const PillarsSection = () => {
               >
                 <Button
                   variant={activeIndex === index ? "default" : "outline"}
-                  className="w-full justify-start cursor-pointer text-left"
+                  className={`w-full justify-start cursor-pointer text-left ${
+                    activeIndex === index
+                      ? "bg-[#0a63ad] text-white hover:bg-[#0e4e90]"
+                      : ""
+                  }`}
                   onClick={() => setActiveIndex(index)}
                 >
                   {item.title}
@@ -151,12 +163,14 @@ const PillarsSection = () => {
                           <h4 className="text-lg font-semibold text-foreground">
                             {sub.subtitle}
                           </h4>
-                          <p className="text-[14px] md:text-base">{sub.content}</p>
+                          <p className="text-[14px] md:text-base">
+                            {sub.content}
+                          </p>
                         </div>
                       ))}
                     </div>
 
-                    <div className="relative w-full py-48 rounded-md overflow-hidden mt-4 shadow bg-gray-100 flex items-center justify-center">
+                    <div className="relative w-full py-48 overflow-hidden mt-4 flex items-center justify-center">
                       {items[activeIndex].image ? (
                         <Image
                           src={items[activeIndex].image}

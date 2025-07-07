@@ -1,37 +1,57 @@
-"use client"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Clock, Users, Award, Globe } from "lucide-react"
-import { useEffect, useState } from "react"
+"use client";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Clock, Users, Award, Globe } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Stats = [
-  { icon: Clock, value: new Date().getFullYear() - 2014, label: "Years", desc: "Of dedicated service" },
-  { icon: Users, value: 5000, label: "Youths", desc: "Lives transformed" },
-  { icon: Award, value: 12, label: "Programs", desc: "Developed & implemented" },
-  { icon: Globe, value: 6, label: "States", desc: "Reached nationwide" },
-]
+  {
+    icon: Clock,
+    value: new Date().getFullYear() - 2014,
+    label: "Years",
+    desc: "Of dedicated service",
+  },
+  {
+    icon: Users,
+    value: 5000,
+    label: "Youths",
+    desc: "Lives transformed",
+  },
+  {
+    icon: Award,
+    value: 12,
+    label: "Programs",
+    desc: "Developed & implemented",
+  },
+  {
+    icon: Globe,
+    value: 6,
+    label: "States",
+    desc: "Reached nationwide",
+  },
+];
 
 const AnimatedCounter = ({ value }: { value: number }) => {
-  const [count, setCount] = useState(0)
-  const [ref, inView] = useInView({ triggerOnce: true })
+  const [count, setCount] = useState(0);
+  const [ref, inView] = useInView({ triggerOnce: true });
 
   useEffect(() => {
-    if (!inView) return
-    let curr = 0
+    if (!inView) return;
+    let curr = 0;
     const interval = setInterval(() => {
-      curr += Math.ceil(value / 50)
+      curr += Math.ceil(value / 50);
       if (curr >= value) {
-        setCount(value)
-        clearInterval(interval)
-      } else setCount(curr)
-    }, 20)
-    return () => clearInterval(interval)
-  }, [inView, value])
+        setCount(value);
+        clearInterval(interval);
+      } else setCount(curr);
+    }, 20);
+    return () => clearInterval(interval);
+  }, [inView, value]);
 
-  return <span ref={ref}>{count.toLocaleString()}</span>
-}
+  return <span ref={ref}>{count.toLocaleString()}</span>;
+};
 
 const StatsSection = () => (
   <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -43,7 +63,11 @@ const StatsSection = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Badge variant="outline" className="mb-4 bg-primary text-white">
+        <Badge
+          variant="outline"
+          className="mb-4 text-white"
+          style={{ backgroundColor: "#1263b5" }}
+        >
           Our Impact
         </Badge>
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -59,7 +83,10 @@ const StatsSection = () => (
           <motion.div key={i} whileHover={{ y: -5 }} className="h-full">
             <Card className="rounded-xl shadow hover:shadow-lg transition-all">
               <div className="p-6 flex justify-center bg-gray-100">
-                <stat.icon className="h-12 w-12 text-primary" />
+                <stat.icon
+                  className="h-12 w-12"
+                  style={{ color: "#1263b5" }}
+                />
               </div>
               <CardHeader className="text-center px-6 pt-6 pb-2">
                 <h3 className="text-4xl font-extrabold text-gray-900">
@@ -67,8 +94,12 @@ const StatsSection = () => (
                 </h3>
               </CardHeader>
               <CardContent className="text-center px-6 pb-6 pt-0">
-                <p className="text-xl font-semibold text-gray-800">{stat.label}</p>
-                <p className="text-gray-600 text-[14px] md:text-base">{stat.desc}</p>
+                <p className="text-xl font-semibold text-gray-800">
+                  {stat.label}
+                </p>
+                <p className="text-gray-600 text-[14px] md:text-base">
+                  {stat.desc}
+                </p>
               </CardContent>
             </Card>
           </motion.div>
@@ -76,6 +107,6 @@ const StatsSection = () => (
       </div>
     </div>
   </section>
-)
+);
 
-export default StatsSection
+export default StatsSection;

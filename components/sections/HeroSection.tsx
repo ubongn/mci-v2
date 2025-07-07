@@ -44,12 +44,17 @@ const HeroSection = () => {
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link href="/about" className="w-full sm:w-auto">
-              <Button className="w-full sm:w-auto" variant="default">
+              <Button
+                className="w-full sm:w-auto bg-[#1263b5] hover:bg-[#0f5298] text-white"
+              >
                 Learn More
               </Button>
             </Link>
             <Link href="/contact" className="w-full sm:w-auto">
-              <Button className="w-full sm:w-auto" variant="outline">
+              <Button
+                className="w-full sm:w-auto"
+                variant="outline"
+              >
                 Contact Us
               </Button>
             </Link>

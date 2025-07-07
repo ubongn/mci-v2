@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${raleway.className} min-h-screen flex flex-col bg-white text-black`}
       >
         <NextTopLoader
-          color="#000000"
+          color="#0a63ad"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}

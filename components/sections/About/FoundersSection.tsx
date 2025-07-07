@@ -17,7 +17,7 @@ and passions to create a positive impact on society. His relentless dedication t
 whether in the realms of technology or fashion, reflects his belief in the potentials of the next generation. 
 Through his ventures and philanthropy, Mr Luther continues to leave an enduring legacy, inspiring young minds 
 to dream big and achieve even bigger, earlier. Mr. Sunny Luther is also the CEO of Assured Concept Ltd....`,
-    image: "/assets/images/CEO.jpg", 
+    image: "/assets/images/CEO.jpg",
   },
 ];
 
@@ -32,14 +32,15 @@ const FoundersSection = () => (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Heading */}
       <motion.div className="text-center mb-12">
-        <Badge variant="outline" className="mb-4 text-white bg-primary">
+        <Badge variant="outline" className="mb-4 bg-[#0a63ad] text-white">
           Our Leadership
         </Badge>
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
           Meet The Visionaries
         </h2>
         <p className="text-gray-600 max-w-2xl text-[14px] md:text-base mx-auto">
-          The passionate leaders who brought MCI to life and continue to steer its mission forward.
+          The passionate leaders who brought MCI to life and continue to steer
+          its mission forward.
         </p>
       </motion.div>
 

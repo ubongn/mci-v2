@@ -17,6 +17,7 @@ import { useState } from "react";
 const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -27,7 +28,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-gray-50 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between  items-center h-16">
+        <div className="flex justify-between items-center h-16">
           {/* Logo - Left Side */}
           <div className="flex flex-col items-center space-x-4">
             <Link href="/" className="flex items-center shrink-0">
@@ -41,7 +42,7 @@ const Navbar = () => {
               />
             </Link>
             <div className="flex gap-4 mt-1 text-[10px]">
-              <span className=" font-medium text-gray-500">EST. 2014</span>
+              <span className="font-medium text-gray-500">EST. 2014</span>
               <span className="font-medium text-gray-500">
                 CAC Reg. No. 67767
               </span>
@@ -57,7 +58,7 @@ const Navbar = () => {
                   href={link.href}
                   className={`transition-colors font-medium text-base ${
                     pathname === link.href
-                      ? "text-black font-semibold"
+                      ? "font-semibold text-[#962927]"
                       : "text-gray-700 hover:text-black"
                   }`}
                 >
@@ -70,7 +71,7 @@ const Navbar = () => {
           {/* Join Us Button - Right Side */}
           <div className="hidden md:flex">
             <Link href="/join-us">
-              <Button className="bg-black text-white hover:bg-gray-800 px-6 cursor-pointer">
+              <Button className="bg-[#0a63ad] hover:bg-[#0e4e90] text-white cursor-pointer">
                 Join Us
               </Button>
             </Link>
@@ -94,7 +95,6 @@ const Navbar = () => {
                 className="bg-gray-50 text-gray-700 border-l w-[300px]"
               >
                 <SheetHeader>
-                  {/* Hidden title for accessibility */}
                   <h2 className="sr-only">Navigation Menu</h2>
                   <div className="flex flex-col pt-4 items-center">
                     <Image
@@ -114,6 +114,7 @@ const Navbar = () => {
                     </div>
                   </div>
                 </SheetHeader>
+
                 <div className="flex flex-col space-y-4 mt-8">
                   {navLinks.map((link) => (
                     <SheetClose asChild key={link.href}>
@@ -121,7 +122,7 @@ const Navbar = () => {
                         href={link.href}
                         className={`text-center py-2 font-medium transition-colors ${
                           pathname === link.href
-                            ? "text-black font-semibold"
+                            ? "font-semibold text-[#962927]"
                             : "text-gray-600 hover:text-black"
                         }`}
                       >
@@ -129,10 +130,11 @@ const Navbar = () => {
                       </Link>
                     </SheetClose>
                   ))}
+
                   <div className="pt-4 mt-4 border-t flex justify-center">
                     <SheetClose asChild>
                       <Link href="/join-us" className="w-1/2">
-                        <Button className="bg-black text-white hover:bg-gray-800 w-full">
+                        <Button className="bg-[#0a63ad] hover:bg-[#0e4e90] text-white w-full">
                           Join Us
                         </Button>
                       </Link>

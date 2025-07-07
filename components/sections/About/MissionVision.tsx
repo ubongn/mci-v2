@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -20,13 +21,20 @@ const MissionVision = () => (
           transition={{ delay: 0.2, duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Badge variant="outline" className="mb-4 text-white bg-primary">
+          <Badge
+            variant="outline"
+            className="mb-4 text-white"
+            style={{
+              backgroundColor: "#1263b5",
+            }}
+          >
             Our Mission
           </Badge>
+
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800">
             Developing the next generation of leaders
           </h2>
-        
+
           <p className="text-gray-700 text-[14px] md:text-base leading-relaxed">
             To empower young people with the tools, mentorship, and mindset
             needed to discover their purpose early and confidently pursue
@@ -66,9 +74,16 @@ const MissionVision = () => (
         transition={{ delay: 0.3, duration: 0.6 }}
       >
         <div>
-          <Badge variant="outline" className="mb-4 text-white bg-primary">
+          <Badge
+            variant="outline"
+            className="mb-4 text-white"
+            style={{
+              backgroundColor: "#1263b5",
+            }}
+          >
             Our Vision
           </Badge>
+
           <h3 className="text-2xl font-bold mb-4 text-gray-800">
             A future shaped by empowered youth
           </h3>
@@ -79,9 +94,16 @@ const MissionVision = () => (
         </div>
 
         <div>
-          <Badge variant="outline" className="mb-4 text-white bg-primary">
+          <Badge
+            variant="outline"
+            className="mb-4 text-white"
+            style={{
+              backgroundColor: "#1263b5",
+            }}
+          >
             Our Values
           </Badge>
+
           <h3 className="text-2xl font-bold mb-4 text-gray-800">
             Integrity, Innovation, Impact
           </h3>
