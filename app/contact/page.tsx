@@ -61,7 +61,7 @@ export default function ContactPage() {
             className="object-cover"
             priority
             sizes="100vw"
-            quality={80}
+           
           />
         </div>
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">

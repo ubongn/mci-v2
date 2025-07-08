@@ -54,14 +54,15 @@ const galleryCategories = [
 
 const GalleriesPage = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pt-24">
       {/* Hero Section */}
-      <motion.section
-        className="relative h-[400px]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
+        <motion.section
+             className="relative h-[300px]"
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.6, ease: "easeOut" }}
+           >
         <Image
           src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30"
           alt="Gallery showcase"
@@ -72,12 +73,13 @@ const GalleriesPage = () => {
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <motion.div
-            className="text-center max-w-4xl"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-center max-w-3xl px-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h1 className="text-2xl md:text-4xl font-bold text-white mb-4">
               Our Galleries
             </h1>
             <p className="text-[14px] md:text-base text-gray-200">
@@ -149,7 +151,9 @@ const GalleriesPage = () => {
             Follow us on social media for regular updates and behind-the-scenes
             content.
           </p>
-          <Button className="px-8 py-4 text-[14px] md:text-base">Follow Our Journey</Button>
+          <Button className="px-8 py-4 text-[14px] md:text-base">
+            Follow Our Journey
+          </Button>
         </div>
       </motion.section>
     </main>

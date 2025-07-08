@@ -57,10 +57,10 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`transition-colors font-medium text-base ${
+                  className={` font-medium text-base ${
                     pathname === link.href
-                      ? "font-semibold text-[#962927]"
-                      : "text-gray-700 hover:text-black"
+                      ? "font-semibold text-[#0a63ad]"
+                      : "text-gray-700 hover:text-gray-600"
                   }`}
                 >
                   {link.name}

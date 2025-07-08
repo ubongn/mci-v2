@@ -4,11 +4,12 @@ import Image from "next/image"
 
 const HeroSection = () => (
   <motion.section
-    className="relative h-[400px]"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 0.8 }}
-  >
+         className="relative h-[300px]"
+         initial={{ opacity: 0, y: 30 }}
+         whileInView={{ opacity: 1, y: 0 }}
+         viewport={{ once: true }}
+         transition={{ duration: 0.6, ease: "easeOut" }}
+       >
     <Image
       src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
       alt="Team meeting"
