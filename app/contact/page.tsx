@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
@@ -47,23 +46,16 @@ export default function ContactPage() {
     <main className="min-h-screen pt-24">
       {/* Hero Section */}
       <motion.section
-        className="relative h-[300px]"
+        className="relative h-[300px] bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')",
+        }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-            alt="Contact us"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-           
-          />
-        </div>
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <motion.div
             className="text-center max-w-3xl px-4"

@@ -56,21 +56,17 @@ const GalleriesPage = () => {
   return (
     <main className="min-h-screen pt-24">
       {/* Hero Section */}
-        <motion.section
-             className="relative h-[300px]"
-             initial={{ opacity: 0, y: 30 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.6, ease: "easeOut" }}
-           >
-        <Image
-          src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30"
-          alt="Gallery showcase"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+      <motion.section
+        className="relative h-[300px] bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30')",
+        }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <motion.div
             className="text-center max-w-3xl px-4"

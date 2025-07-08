@@ -47,7 +47,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/careers"
+                    href="/join-us"
                     className="text-gray-600 hover:text-gray-900 transition-colors"
                   >
                     Careers
@@ -69,28 +69,19 @@ const Footer = () => {
               <h4 className="font-bold mb-4 text-gray-900">Resources</h4>
               <ul className="space-y-3 text-[14px] md:text-base">
                 <li>
-                  <Link
-                    href="/blog"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
-                  >
+                  <p className="text-gray-600 hover:text-gray-900 transition-colors">
                     Blog
-                  </Link>
+                  </p>
                 </li>
                 <li>
-                  <Link
-                    href="/privacy"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
-                  >
+                  <p className="text-gray-600 hover:text-gray-900 transition-colors">
                     Privacy Policy
-                  </Link>
+                  </p>
                 </li>
                 <li>
-                  <Link
-                    href="/terms"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
-                  >
+                  <p className="text-gray-600 hover:text-gray-900 transition-colors">
                     Terms of Service
-                  </Link>
+                  </p>
                 </li>
               </ul>
             </div>

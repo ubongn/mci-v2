@@ -1,33 +1,32 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { toast } from 'sonner';
+} from "@/components/ui/select";
+import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 export default function JoinUsPage() {
   const occupations = [
-    'Student',
-    'Professional',
-    'Entrepreneur',
-    'Educator',
-    'Artist',
-    'Technician',
-    'Other',
+    "Student",
+    "Professional",
+    "Entrepreneur",
+    "Educator",
+    "Artist",
+    "Technician",
+    "Other",
   ];
 
   const [loading, setLoading] = useState(false);
-  const [occupation, setOccupation] = useState('');
+  const [occupation, setOccupation] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,24 +36,24 @@ export default function JoinUsPage() {
     const formData = new FormData(form);
 
     const payload = {
-      firstName: formData.get('firstName'),
-      surname: formData.get('surname'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      department: formData.get('department'),
-      talent: formData.get('talent'),
-      referralName: formData.get('referralName'),
-      referralPhone: formData.get('referralPhone'),
-      occupation: formData.get('occupation'),
-      dob: formData.get('dob'),
+      firstName: formData.get("firstName"),
+      surname: formData.get("surname"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      department: formData.get("department"),
+      talent: formData.get("talent"),
+      referralName: formData.get("referralName"),
+      referralPhone: formData.get("referralPhone"),
+      occupation: formData.get("occupation"),
+      dob: formData.get("dob"),
     };
 
     console.log(payload);
 
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    toast.success('Registration successful!');
+    toast.success("Registration successful!");
     form.reset();
-    setOccupation('');
+    setOccupation("");
     setLoading(false);
   };
 
@@ -62,27 +61,22 @@ export default function JoinUsPage() {
     <main className="min-h-screen pt-24">
       {/* Hero Section */}
       <motion.section
-        className="relative h-[300px]"
+        className="relative h-[300px] bg-cover bg-center"
+        style={{
+          backgroundImage: `url('/assets/images/image7-.jpg')`,
+        }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <Image
-          src="/assets/images/image7-.jpg"
-          alt="Join our community"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <motion.div
             className="text-center max-w-3xl px-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Join Our Community
@@ -100,7 +94,7 @@ export default function JoinUsPage() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -108,7 +102,7 @@ export default function JoinUsPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-2xl font-bold mb-6 text-center">
               Registration Form
@@ -119,29 +113,55 @@ export default function JoinUsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name *</Label>
-                  <Input id="firstName" name="firstName" placeholder="Your first name" required />
+                  <Input
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Your first name"
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="surname">Surname *</Label>
-                  <Input id="surname" name="surname" placeholder="Your surname" required />
+                  <Input
+                    id="surname"
+                    name="surname"
+                    placeholder="Your surname"
+                    required
+                  />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="email">Email *</Label>
-                <Input type="email" id="email" name="email" placeholder="your@email.com" required />
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone Number *</Label>
-                <Input type="tel" id="phone" name="phone" placeholder="+234 123 456 7890" required />
+                <Input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+234 123 456 7890"
+                  required
+                />
               </div>
 
               {/* Occupation and Department */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label>Occupation *</Label>
-                  <Select onValueChange={setOccupation} value={occupation} required>
+                  <Select
+                    onValueChange={setOccupation}
+                    value={occupation}
+                    required
+                  >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select Occupation" />
                     </SelectTrigger>
@@ -158,7 +178,12 @@ export default function JoinUsPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="department">Department *</Label>
-                  <Input id="department" name="department" placeholder="Enter your department" required />
+                  <Input
+                    id="department"
+                    name="department"
+                    placeholder="Enter your department"
+                    required
+                  />
                 </div>
               </div>
 
@@ -171,18 +196,32 @@ export default function JoinUsPage() {
               {/* Talent/Skill */}
               <div className="space-y-2">
                 <Label htmlFor="talent">Talent/Skill *</Label>
-                <Input id="talent" name="talent" placeholder="Your special talent or skill" required />
+                <Input
+                  id="talent"
+                  name="talent"
+                  placeholder="Your special talent or skill"
+                  required
+                />
               </div>
 
               {/* Referral Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="referralName">Referral Name</Label>
-                  <Input id="referralName" name="referralName" placeholder="Name of person who referred you" />
+                  <Input
+                    id="referralName"
+                    name="referralName"
+                    placeholder="Name of person who referred you"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="referralPhone">Referral Phone Number</Label>
-                  <Input type="tel" id="referralPhone" name="referralPhone" placeholder="Referral's phone number" />
+                  <Input
+                    type="tel"
+                    id="referralPhone"
+                    name="referralPhone"
+                    placeholder="Referral's phone number"
+                  />
                 </div>
               </div>
 
@@ -191,7 +230,7 @@ export default function JoinUsPage() {
                 className="w-full mt-8 text-[14px] cursor-pointer md:text-base bg-[#0a63ad] hover:bg-[#094f8c] focus-visible:ring-[#0a63ad]"
                 disabled={loading}
               >
-                {loading ? 'Registering...' : 'Register Now'}
+                {loading ? "Registering..." : "Register Now"}
               </Button>
             </form>
           </motion.div>
