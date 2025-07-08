@@ -5,6 +5,7 @@ import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "@/components/ui/sonner";
 
 // Load font with basic configuration
 const raleway = Raleway({
@@ -44,6 +45,7 @@ export default function RootLayout({
 
         <main className="flex-grow">{children}</main>
         <Footer />
+          <Toaster richColors position="top-right" />
       </body>
     </html>
   );

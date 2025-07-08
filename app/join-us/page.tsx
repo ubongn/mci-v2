@@ -1,28 +1,62 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { CalendarIcon } from 'lucide-react';
-import { format } from 'date-fns';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 
 export default function JoinUsPage() {
   const occupations = [
-    "Student",
-    "Professional",
-    "Entrepreneur",
-    "Educator",
-    "Artist",
-    "Technician",
-    "Other"
+    'Student',
+    'Professional',
+    'Entrepreneur',
+    'Educator',
+    'Artist',
+    'Technician',
+    'Other',
   ];
 
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [loading, setLoading] = useState(false);
+  const [occupation, setOccupation] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      firstName: formData.get('firstName'),
+      surname: formData.get('surname'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      department: formData.get('department'),
+      talent: formData.get('talent'),
+      referralName: formData.get('referralName'),
+      referralPhone: formData.get('referralPhone'),
+      occupation: formData.get('occupation'),
+      dob: formData.get('dob'),
+    };
+
+    console.log(payload);
+
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    toast.success('Registration successful!');
+    form.reset();
+    setOccupation('');
+    setLoading(false);
+  };
 
   return (
     <main className="min-h-screen pt-24">
@@ -32,10 +66,10 @@ export default function JoinUsPage() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+          src="/assets/images/image7-.jpg"
           alt="Join our community"
           fill
           className="object-cover"
@@ -48,7 +82,7 @@ export default function JoinUsPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Join Our Community
@@ -66,7 +100,7 @@ export default function JoinUsPage() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
       >
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -74,129 +108,90 @@ export default function JoinUsPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <h2 className="text-2xl font-bold mb-6 text-center">
               Registration Form
             </h2>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Personal Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name *</Label>
-                  <Input id="firstName" placeholder="Your first name" required />
+                  <Input id="firstName" name="firstName" placeholder="Your first name" required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="surname">Surname *</Label>
-                  <Input id="surname" placeholder="Your surname" required />
+                  <Input id="surname" name="surname" placeholder="Your surname" required />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="email">Email *</Label>
-                <Input
-                  type="email"
-                  id="email"
-                  placeholder="your@email.com"
-                  required
-                />
+                <Input type="email" id="email" name="email" placeholder="your@email.com" required />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone Number *</Label>
-                <Input
-                  type="tel"
-                  id="phone"
-                  placeholder="+234 123 456 7890"
-                  required
-                />
+                <Input type="tel" id="phone" name="phone" placeholder="+234 123 456 7890" required />
               </div>
 
               {/* Occupation and Department */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label>Occupation *</Label>
-                  <select
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    required
-                  >
-                    <option value="">Select Occupation</option>
-                    {occupations.map((occupation) => (
-                      <option key={occupation} value={occupation}>
-                        {occupation}
-                      </option>
-                    ))}
-                  </select>
+                  <Select onValueChange={setOccupation} value={occupation} required>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select Occupation" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {occupations.map((occ) => (
+                        <SelectItem key={occ} value={occ}>
+                          {occ}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <input type="hidden" name="occupation" value={occupation} />
                 </div>
+
                 <div className="space-y-2">
                   <Label htmlFor="department">Department *</Label>
-                  <Input
-                    id="department"
-                    placeholder="Enter your department"
-                    required
-                  />
+                  <Input id="department" name="department" placeholder="Enter your department" required />
                 </div>
               </div>
 
               {/* Date of Birth */}
               <div className="space-y-2">
-                <Label>Date of Birth *</Label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className="w-full justify-start text-left font-normal"
-                    >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
-                      {date ? format(date, "PPP") : <span>Pick a date</span>}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0">
-                    <Calendar
-                      mode="single"
-                      selected={date}
-                      onSelect={setDate}
-                      initialFocus
-                    />
-                  </PopoverContent>
-                </Popover>
+                <Label htmlFor="dob">Date of Birth *</Label>
+                <Input type="date" id="dob" name="dob" required />
               </div>
 
               {/* Talent/Skill */}
               <div className="space-y-2">
                 <Label htmlFor="talent">Talent/Skill *</Label>
-                <Input
-                  id="talent"
-                  placeholder="Your special talent or skill"
-                  required
-                />
+                <Input id="talent" name="talent" placeholder="Your special talent or skill" required />
               </div>
 
               {/* Referral Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="referralName">Referral Name</Label>
-                  <Input
-                    id="referralName"
-                    placeholder="Name of person who referred you"
-                  />
+                  <Input id="referralName" name="referralName" placeholder="Name of person who referred you" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="referralPhone">Referral Phone Number</Label>
-                  <Input
-                    type="tel"
-                    id="referralPhone"
-                    placeholder="Referral's phone number"
-                  />
+                  <Input type="tel" id="referralPhone" name="referralPhone" placeholder="Referral's phone number" />
                 </div>
               </div>
 
               <Button
                 type="submit"
-                className="w-full mt-8 text-[14px] md:text-base bg-[#0a63ad] hover:bg-[#094f8c] focus-visible:ring-[#0a63ad]"
+                className="w-full mt-8 text-[14px] cursor-pointer md:text-base bg-[#0a63ad] hover:bg-[#094f8c] focus-visible:ring-[#0a63ad]"
+                disabled={loading}
               >
-                Register Now
+                {loading ? 'Registering...' : 'Register Now'}
               </Button>
             </form>
           </motion.div>

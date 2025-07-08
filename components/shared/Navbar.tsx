@@ -9,6 +9,7 @@ import {
   SheetClose,
   SheetContent,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Image from "next/image";
@@ -94,8 +95,8 @@ const Navbar = () => {
                 side="right"
                 className="bg-gray-50 text-gray-700 border-l w-[300px]"
               >
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <SheetHeader>
-                  <h2 className="sr-only">Navigation Menu</h2>
                   <div className="flex flex-col pt-4 items-center">
                     <Image
                       src="/assets/icons/new.png"

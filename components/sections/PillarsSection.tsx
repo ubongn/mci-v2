@@ -59,6 +59,18 @@ Participants gain practical experience and skills that allow them to pursue gain
         content: `We provide mentorship, business planning guidance, and starter kits to help graduates establish and grow 
 their own businesses. Our goal is to empower individuals to become self-reliant and economically independent.`,
       },
+      {
+        subtitle: "Fashion Designing",
+        content: `We offer fashion designing skills which empower individuals to express creativity, develop artistic abilities, and create clothing and accessories. It leads to personal and financial growth through entrepreneurial opportunities and employment in the fashion industry. Additionally, it preserves traditional crafts and cultural heritage by blending local artistry and techniques into modern designs.`,
+      },
+      {
+        subtitle: "Catering & Decoration",
+        content: `We also offer skills in catering, craft, and decoration which provide various advantages. It empowers individuals economically by enabling them to generate income. It creates job opportunities in different sectors and encourages entrepreneurship, fostering innovation and self-reliance. Additionally, it contributes to the preservation of cultural heritage while promoting community development through collaboration and cooperation.`,
+      },
+      {
+        subtitle: "MCI Driving School",
+        content: `At MCI, teaching driving skills enhances mobility, independence, and access to job opportunities. It expands educational and social horizons and enables individuals to engage in activities not easily accessible by public transportation. Driving skills are valuable during emergencies, promoting effective response and assistance. Teaching safe driving practices contributes to road safety and accident reduction by instilling road regulations and responsible behavior.`,
+      },
     ],
   },
   {
@@ -108,7 +120,7 @@ const PillarsSection = () => {
             </Badge>
           </motion.div>
 
-          <h2 className="text-3xl font-bold mb-4 text-foreground">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
             Explore our Pillars
           </h2>
           <p className="text-muted-foreground md:max-w-2xl text-[14px] md:text-base mx-auto">
@@ -142,7 +154,7 @@ const PillarsSection = () => {
           </div>
 
           {/* Right Content */}
-          <div className="w-full md:w-2/3 min-h-[700px] relative">
+          <div className="w-full md:w-2/3 min-h-[570px] relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -170,7 +182,7 @@ const PillarsSection = () => {
                       ))}
                     </div>
 
-                    <div className="relative w-full py-48 overflow-hidden mt-4 flex items-center justify-center">
+                    {/* <div className="relative w-full py-48 overflow-hidden mt-4 flex items-center justify-center">
                       {items[activeIndex].image ? (
                         <Image
                           src={items[activeIndex].image}
@@ -184,7 +196,7 @@ const PillarsSection = () => {
                           No image available
                         </span>
                       )}
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               </motion.div>

@@ -4,16 +4,43 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
   const contactInfo = {
-    emails: ["info@mci.org", "support@mci.org"],
-    phones: ["+234 123 456 7890", "+234 987 654 3210"],
-    address: ["123 Youth Development Avenue", "Lagos, Nigeria"],
-    hours: ["Monday - Friday: 9am - 5pm", "Saturday: 10am - 2pm"],
+    emails: ["info@mci.org"],
+    phones: ["+234 903 977 0981"],
+    address: [
+      "Plot 234, Opposite Gifted Secondary School, Phase 2 Gwagwalada, ",
+      "Abuja FCT, Nigeria",
+    ],
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.currentTarget; // <--- capture the form element once
+    const formData = new FormData(form);
+
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const subject = formData.get("subject");
+    const message = formData.get("message");
+
+    console.log({ name, email, subject, message });
+
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    toast.success("Message sent successfully!");
+
+    form.reset(); // <--- now safe because form is guaranteed
+    setLoading(false);
   };
 
   return (
@@ -68,38 +95,52 @@ export default function ContactPage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Your name</Label>
-                  <Input id="name" placeholder="Your name" required />
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="your@email.com"
                     required
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Subject" required />
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Your message</Label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Your message"
                     rows={5}
                     required
                   />
                 </div>
+
                 <Button
                   type="submit"
-                  className="w-full mt-8 text-[14px] md:text-base bg-[#0a63ad] hover:bg-[#094f8c] focus-visible:ring-[#0a63ad]"
+                  className="w-full mt-8 text-[14px] cursor-pointer md:text-base bg-[#0a63ad] hover:bg-[#094f8c] focus-visible:ring-[#0a63ad]"
+                  disabled={loading}
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </motion.div>
@@ -116,6 +157,7 @@ export default function ContactPage() {
                 <h2 className=" text-xl md:text-2xl font-bold mb-6">
                   Our information
                 </h2>
+
                 <div className="space-y-8">
                   {[
                     {
@@ -132,11 +174,6 @@ export default function ContactPage() {
                       icon: <MapPin className="w-5 h-5 text-primary" />,
                       title: "Address",
                       items: contactInfo.address,
-                    },
-                    {
-                      icon: <Clock className="w-5 h-5 text-primary" />,
-                      title: "Working Hours",
-                      items: contactInfo.hours,
                     },
                   ].map((info, i) => (
                     <motion.div
@@ -169,6 +206,19 @@ export default function ContactPage() {
                       </div>
                     </motion.div>
                   ))}
+                </div>
+
+                {/* Map Section */}
+                <div className="mt-8">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.608139548622!2d7.070444515195351!3d8.940882993593836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e98f16a0533e3%3A0x7b1e0862ddc39f8e!2sPhase%202%20Gwagwalada%2C%20Abuja!5e0!3m2!1sen!2sng!4v1710000000000!5m2!1sen!2sng"
+                    width="100%"
+                    height="250"
+                    className="rounded-lg border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </motion.div>
