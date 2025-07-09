@@ -63,7 +63,7 @@ export default function JoinUsPage() {
       <motion.section
         className="relative h-[300px] bg-cover bg-center"
         style={{
-          backgroundImage: `url('/assets/images/image7-.jpg')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')`,
         }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

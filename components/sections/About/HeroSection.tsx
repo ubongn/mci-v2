@@ -3,15 +3,14 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => (
   <motion.section
-    className="relative h-[300px] bg-cover bg-center"
+    className="relative h-[300px] bg-cover"
     style={{
       backgroundImage:
-        "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c')",
+        "url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30')",
     }}
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
   >
     <div className="absolute inset-0 bg-black/60 flex items-center justify-center p-4">
       <motion.div

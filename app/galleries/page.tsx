@@ -11,7 +11,7 @@ const galleryCategories = [
     id: 1,
     title: "Youth Programs",
     description: "Our impactful youth development initiatives in action",
-    coverImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+    coverImage: "/assets/images/image9.jpg",
     count: 24,
   },
   {
@@ -19,35 +19,35 @@ const galleryCategories = [
     title: "Training Sessions",
     description: "Skill-building workshops and training programs",
     coverImage:
-      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf04b?auto=format&fit=crop&w=800&q=80",
+      "/assets/images/image5.jpg",
     count: 18,
   },
   {
     id: 3,
     title: "Community Events",
     description: "Our engagements with local communities",
-    coverImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
+    coverImage: "/assets/images/image8.jpg",
     count: 32,
   },
   {
     id: 4,
     title: "Leadership Conferences",
     description: "Annual youth leadership summits",
-    coverImage: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407",
+    coverImage: "/assets/images/image11.jpg",
     count: 12,
   },
   {
     id: 5,
     title: "Success Stories",
     description: "Transformations from our beneficiaries",
-    coverImage: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    coverImage: "/assets/images/image7.jpg",
     count: 27,
   },
   {
     id: 6,
     title: "Team Activities",
     description: "Behind-the-scenes with our dedicated staff",
-    coverImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    coverImage: "/assets/images/image3.jpg",
     count: 15,
   },
 ];
@@ -62,10 +62,9 @@ const GalleriesPage = () => {
           backgroundImage:
             "url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30')",
         }}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <motion.div

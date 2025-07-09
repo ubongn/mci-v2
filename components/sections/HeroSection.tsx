@@ -68,7 +68,7 @@ const HeroSection = () => {
         >
           <div className="w-full aspect-[4/3] sm:aspect-video md:aspect-[16/10] relative rounded-md overflow-hidden shadow-lg">
             <Image
-              src="/assets/images/tailor/t7.jpg"
+              src="/assets/images/image1.jpg"
               alt="Master’s Care International"
               fill
               className="object-cover"

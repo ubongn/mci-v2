@@ -51,7 +51,7 @@ const MissionVision = () => (
           viewport={{ once: true }}
         >
           <Image
-            src="/assets/images/tailor/t7.jpg"
+            src="/assets/images/image12.jpg"
             alt="MCI youth program"
             fill
             className="object-cover"
