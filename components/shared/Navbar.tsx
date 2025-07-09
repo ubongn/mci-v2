@@ -119,8 +119,8 @@ const Navbar = () => {
                         href={link.href}
                         className={`text-center py-2 font-medium transition-colors ${
                           pathname === link.href
-                            ? "font-semibold text-[#962927]"
-                            : "text-gray-600 hover:text-black"
+                            ? "font-semibold text-[#0a63ad]"
+                            : "text-gray-700 hover:text-gray-600"
                         }`}
                       >
                         {link.name}
