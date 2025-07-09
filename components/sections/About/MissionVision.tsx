@@ -21,13 +21,7 @@ const MissionVision = () => (
           transition={{ delay: 0.2, duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Badge
-            variant="outline"
-            className="mb-4 text-white"
-            style={{
-              backgroundColor: "#1263b5",
-            }}
-          >
+         <Badge variant="outline" className="mb-4 font-bold text-sm">
             Our Mission
           </Badge>
 
@@ -74,13 +68,7 @@ const MissionVision = () => (
         transition={{ delay: 0.3, duration: 0.6 }}
       >
         <div>
-          <Badge
-            variant="outline"
-            className="mb-4 text-white"
-            style={{
-              backgroundColor: "#1263b5",
-            }}
-          >
+        <Badge variant="outline" className="mb-4 font-bold text-sm">
             Our Vision
           </Badge>
 
@@ -94,13 +82,7 @@ const MissionVision = () => (
         </div>
 
         <div>
-          <Badge
-            variant="outline"
-            className="mb-4 text-white"
-            style={{
-              backgroundColor: "#1263b5",
-            }}
-          >
+         <Badge variant="outline" className="mb-4 font-bold text-sm">
             Our Values
           </Badge>
 

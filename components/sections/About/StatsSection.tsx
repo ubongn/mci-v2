@@ -63,11 +63,7 @@ const StatsSection = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Badge
-          variant="outline"
-          className="mb-4 text-white"
-          style={{ backgroundColor: "#1263b5" }}
-        >
+       <Badge variant="outline" className="mb-4 font-bold text-sm">
           Our Impact
         </Badge>
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">

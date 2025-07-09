@@ -81,8 +81,8 @@ export default function ContactPage() {
             {/* Contact Form */}
             <motion.div
               className="bg-gray-50 p-8 rounded-lg shadow-sm"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }} // 👈 start below
+              whileInView={{ opacity: 1, y: 0 }} // 👈 animate up
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
@@ -140,8 +140,8 @@ export default function ContactPage() {
             {/* Contact Info */}
             <motion.div
               className="space-y-12"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -50 }} // 👈 start above
+              whileInView={{ opacity: 1, y: 0 }} // 👈 animate down
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >

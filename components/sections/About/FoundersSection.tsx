@@ -40,7 +40,7 @@ const FoundersSection = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div className="text-center mb-12">
-          <Badge variant="outline" className="mb-4 bg-[#0a63ad] text-white">
+          <Badge variant="outline" className="mb-4 font-bold text-sm">
             Our Leadership
           </Badge>
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">

@@ -13,14 +13,12 @@ type SubItem = {
 
 type PillarItem = {
   title: string;
-  image: string;
   subs: SubItem[];
 };
 
 const items: PillarItem[] = [
   {
     title: "Education & Tech",
-    image: "",
     subs: [
       {
         subtitle: "Coding Academy",
@@ -46,7 +44,6 @@ creative solutions to real-world challenges.`,
   },
   {
     title: "Skill Acquisition",
-    image: "",
     subs: [
       {
         subtitle: "Vocational Training",
@@ -74,7 +71,6 @@ their own businesses. Our goal is to empower individuals to become self-reliant 
   },
   {
     title: "UN SDGs Alignment",
-    image: "/assets/images/un1.png",
     subs: [
       {
         subtitle: "No Poverty (SDG 1)",
@@ -98,6 +94,23 @@ Our programs foster economic growth by equipping participants with market-releva
       },
     ],
   },
+  {
+    title: "Philanthropy",
+    subs: [
+      {
+        subtitle: "Community Support",
+        content: `Through our philanthropic initiatives, we extend help to vulnerable communities by providing food, clothing, healthcare, and educational materials. Our aim is to improve the quality of life and foster hope for those in need.`,
+      },
+      {
+        subtitle: "Disaster Relief",
+        content: `We respond to natural and man-made disasters by providing emergency relief and rehabilitation support to affected individuals and families. This includes shelter, supplies, and long-term rebuilding efforts.`,
+      },
+      {
+        subtitle: "Health & Wellness",
+        content: `We organize medical outreaches, awareness campaigns, and provide access to essential healthcare services. Our focus is on promoting physical and mental well-being in underserved communities.`,
+      },
+    ],
+  },
 ];
 
 const PillarsSection = () => {
@@ -114,7 +127,7 @@ const PillarsSection = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <Badge variant="outline" className="mb-4 bg-[#0a63ad] text-white">
+            <Badge variant="outline" className="mb-4 font-bold text-sm">
               Our Initiatives
             </Badge>
           </motion.div>
@@ -130,7 +143,7 @@ const PillarsSection = () => {
         {/* Layout */}
         <div className="flex flex-col md:flex-row gap-6">
           {/* Left Nav */}
-          <div className="w-full md:w-1/3 space-y-2">
+          <div className="w-full= md:w-1/3 space-y-2">
             {items.map((item, index) => (
               <motion.div
                 key={index}
@@ -139,7 +152,7 @@ const PillarsSection = () => {
               >
                 <Button
                   variant={activeIndex === index ? "default" : "outline"}
-                  className={`w-full justify-start cursor-pointer text-left ${
+                  className={`md:w-full w-1/2 justify-start cursor-pointer text-left ${
                     activeIndex === index
                       ? "bg-[#0a63ad] text-white hover:bg-[#0e4e90]"
                       : ""

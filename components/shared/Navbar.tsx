@@ -82,14 +82,10 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="hover:bg-gray-200 text-gray-700"
-                >
+                <div className="hover:bg-gray-200 text-gray-700">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle menu</span>
-                </Button>
+                </div>
               </SheetTrigger>
               <SheetContent
                 side="right"
