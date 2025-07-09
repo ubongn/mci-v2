@@ -37,14 +37,14 @@ const Footer = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-base">
             {/* Column 1 */}
             <div>
-              <h4 className="font-bold mb-4 text-gray-900">Company</h4>
+              {/* <h4 className="font-bold mb-4 text-gray-900">Company</h4> */}
               <ul className="space-y-3 text-[14px] md:text-base">
                 <li>
                   <Link
                     href="/about"
                     className="text-gray-600 hover:text-gray-900 transition-colors"
                   >
-                    About Us
+                    About
                   </Link>
                 </li>
                 <li>
@@ -68,7 +68,7 @@ const Footer = () => {
 
             {/* Column 2 */}
             <div>
-              <h4 className="font-bold mb-4 text-gray-900">Resources</h4>
+              {/* <h4 className="font-bold mb-4 text-gray-900">Resources</h4> */}
               <ul className="space-y-3 text-[14px] md:text-base">
                 <li>
                   <p className="text-gray-600 hover:text-gray-900 transition-colors">
@@ -90,7 +90,7 @@ const Footer = () => {
 
             {/* Column 3 - Connect with Brand-Colored Icons */}
             <div>
-              <h4 className="font-bold mb-4 text-gray-900">Connect</h4>
+              {/* <h4 className="font-bold mb-4 text-gray-900">Connect</h4> */}
               <div className="flex flex-col space-y-4 text-[14px] md:text-base">
                 <a
                   href="https://x.com"
