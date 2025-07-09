@@ -4,13 +4,14 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 
-import NextTopLoader from "nextjs-toploader";
-import { Toaster } from "@/components/ui/sonner";
 
-// Load font with basic configuration
+import { Toaster } from "@/components/ui/sonner";
+import ClientTopLoader from "@/components/shared/ClientTopLoader";
+import ClientToaster from "@/components/shared/ClientToaster";
+
 const raleway = Raleway({
   subsets: ["latin"],
-  weight: "400", // Start with single weight
+  weight: "400",
   display: "swap",
 });
 
@@ -27,26 +28,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${raleway.className} min-h-screen flex flex-col bg-white text-black`}
-      >
-        <NextTopLoader
-          color="#0a63ad"
-          initialPosition={0.08}
-          crawlSpeed={200}
-          height={3}
-          crawl={true}
-          showSpinner={false}
-          
-          easing="ease"
-          speed={200}
-          shadow="0 0 10px #000000,0 0 5px #000000"
-        />
+      <body className={`${raleway.className} min-h-screen flex flex-col bg-white text-black`}>
+        <ClientTopLoader />
         <Navbar />
-
         <main className="flex-grow">{children}</main>
         <Footer />
-          <Toaster richColors position="top-right" />
+        <ClientToaster />
       </body>
     </html>
   );
