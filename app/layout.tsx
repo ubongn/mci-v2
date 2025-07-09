@@ -3,9 +3,6 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
-
-
-import { Toaster } from "@/components/ui/sonner";
 import ClientTopLoader from "@/components/shared/ClientTopLoader";
 import ClientToaster from "@/components/shared/ClientToaster";
 
