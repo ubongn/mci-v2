@@ -36,25 +36,24 @@ const HeroSection = () => {
             Building and Rebuilding Lives
           </h1>
           <p className="mt-4 text-[14px] md:text-base text-muted-foreground leading-relaxed">
-            Master’s Care International (MCI) is a non-profit organization committed to empowering young people to live meaningful, prosperous, and successful lives — no matter their background or circumstances.
+            Master’s Care International (MCI) is a non-profit organization
+            committed to empowering young people to live meaningful, prosperous,
+            and successful lives — no matter their background or circumstances.
           </p>
           <p className="mt-3 text-[14px] md:text-base text-muted-foreground leading-relaxed">
-            Legally registered with the Corporate Affairs Commission (CAC) of Nigeria since 2014 (Registration No: 67767), MCI continues to make a lasting impact through education, empowerment, and care.
+            Legally registered with the Corporate Affairs Commission (CAC) of
+            Nigeria since 2014 (Registration No: 67767), MCI continues to make a
+            lasting impact through education, empowerment, and care.
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link href="/about" className="w-full sm:w-auto">
-              <Button
-                className="w-full sm:w-auto bg-[#1263b5] hover:bg-[#0f5298] text-white"
-              >
+              <Button className="w-full sm:w-auto bg-[#1263b5] hover:bg-[#0f5298] text-white">
                 Learn More
               </Button>
             </Link>
             <Link href="/contact" className="w-full sm:w-auto">
-              <Button
-                className="w-full sm:w-auto"
-                variant="outline"
-              >
+              <Button className="w-full sm:w-auto" variant="outline">
                 Contact Us
               </Button>
             </Link>
@@ -66,14 +65,14 @@ const HeroSection = () => {
           className="w-full lg:w-1/2 order-1 lg:order-2"
           variants={fadeUpVariants}
         >
-          <div className="w-full aspect-[4/3] sm:aspect-video md:aspect-[16/10] relative rounded-md overflow-hidden shadow-lg">
+          <div className="relative w-full rounded-md overflow-hidden shadow-lg aspect-video sm:aspect-[4/3] md:aspect-[16/10]">
             <Image
               src="/assets/images/image1.jpg"
               alt="Master’s Care International"
               fill
-              className="object-cover"
               priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 20vw, 33vw"
             />
           </div>
         </motion.div>
